@@ -1,0 +1,449 @@
+:root {
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --accent-orange: #ff9c00;
+  --accent-blue: #00aeff;
+  --accent-armor: #e5c158; /* Màu vàng kim cho Giáp */
+  --accent-shield: #33a1fd; /* Màu xanh ngọc cho Khiên */
+  --text-main: #f0f6fc;
+  --text-muted: #8b949e;
+  --border-color: #30363d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* Header & Nav */
+header {
+  padding: 1.5rem 8%;
+  background: rgba(22, 27, 34, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--accent-orange);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--accent-orange);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.2rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.nav-btn.active, .nav-btn:hover {
+  background: var(--accent-blue);
+  color: #000;
+  border-color: var(--accent-blue);
+}
+
+/* View Sections */
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Filter Bar */
+.filter-bar {
+  padding: 2rem 8% 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#searchInput {
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: #161b22;
+  color: #fff;
+  outline: none;
+  width: 250px;
+}
+
+#searchInput:focus {
+  border-color: var(--accent-orange);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
+  font-family: 'Chakra Petch', sans-serif;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--accent-orange);
+  color: #000;
+  border-color: var(--accent-orange);
+}
+
+/* Grid Container */
+.container {
+  padding: 2rem 8%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.hero-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-orange);
+  box-shadow: 0 5px 15px rgba(255, 156, 0, 0.2);
+}
+
+.hero-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-info {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.hero-name {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.hero-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* Compare View Styles */
+.compare-container {
+  padding: 3rem 10%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.compare-container h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  margin-bottom: 2rem;
+  color: var(--accent-orange);
+}
+
+.compare-selectors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-select {
+  padding: 0.7rem 1rem;
+  background: var(--card-bg);
+  color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  width: 250px;
+}
+
+.hero-select:focus {
+  border-color: var(--accent-blue);
+}
+
+.vs-badge {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+.compare-results {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.compare-col {
+  text-align: center;
+}
+
+.compare-col img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-blue);
+  margin: 0 auto 0.5rem auto;
+  display: block;
+}
+
+/* Bố cục Grid 3 cột chuẩn cho từng dòng thông số */
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.stat-left {
+  text-align: center;
+  font-weight: 600;
+}
+
+.stat-label {
+  text-align: center;
+}
+
+.stat-right {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  z-index: 200;
+}
+
+.modal-overlay.active {
+  opacity: 1; pointer-events: all;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border: 2px solid var(--accent-orange);
+  width: 90%; max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px; padding: 2rem;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute; top: 15px; right: 20px;
+  background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;
+}
+
+/* Ability Detail Cards inside Modal */
+.ability-card {
+  background: #0d1117;
+  border-left: 3px solid var(--accent-orange);
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 4px;
+}
+
+.ability-name {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  color: var(--accent-orange);
+  margin-bottom: 0.3rem;
+}
+
+.ability-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.logo img {
+  height: 70px; /* Điều chỉnh chiều cao của logo cho vừa vặn */
+  width: auto;
+  object-fit: contain;
+}
+
+/* ========================================= */
+/* FIX RESPONSIVE CHO MỤC SO SÁNH & GIAO DIỆN */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. Header và Navigation trên điện thoại */
+  header {
+    padding: 1rem 4%;
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  /* 2. Thanh tìm kiếm và bộ lọc */
+  .filter-bar {
+    padding: 1.5rem 4% 0 4%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #searchInput {
+    width: 100%;
+  }
+
+  .filter-buttons {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  /* 3. Khung chứa trang So sánh */
+  .compare-container {
+    padding: 1.5rem 3%;
+    max-width: 100%;
+  }
+
+  .compare-container h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Chuyển 2 ô chọn tướng thành dạng xếp dọc */
+  .compare-selectors {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-select {
+    width: 100%;
+  }
+
+  .vs-badge {
+    font-size: 1.2rem;
+    margin: -0.4rem 0;
+  }
+
+  /* 4. Kết quả so sánh & các dòng thông số */
+  .compare-results {
+    padding: 1rem 0.5rem;
+  }
+
+  .compare-col img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 0.5rem;
+  }
+
+  /* Các dòng so sánh chỉ số co giãn tốt hơn trên mobile */
+  .stat-row {
+    grid-template-columns: 1fr 1.2fr 1fr;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.2rem;
+  }
+
+  .stat-left, .stat-right {
+    font-size: 0.85rem;
+    word-break: break-word;
+  }
+
+  /* 5. Lưới danh sách tướng chung */
+  .container {
+    padding: 1.5rem 4%;
+  }
+
+  .hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .hero-card img {
+    height: 160px;
+  }
+
+  /* 6. Modal chi tiết tướng */
+  .modal-content {
+    width: 95%;
+    padding: 1.2rem;
+    max-height: 85vh;
+  }
+}
